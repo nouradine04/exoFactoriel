@@ -1,10 +1,13 @@
 pipeline {
-    agent any
+    agent {
+        label 'maven'
+    }
 
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', changelog: false, credentialsId: 'a0ca0d28-80bd-4911-90cf-f4191d8fd2cc', poll: false, url: 'https://github.com/nouradine04/exoFactoriel.git'            }
+                git 'https://github.com/nouradine04/exoFactoriel.git'
+            }
         }
 
         stage('Build') {
